@@ -1,0 +1,14 @@
+/.project
+/.classpath
+/.mymetadata
+/.settings
+/.project
+/build
+*.class
+*.swap
+*.bak
+*-bak
+*~
+/src/application.properties
+
+
