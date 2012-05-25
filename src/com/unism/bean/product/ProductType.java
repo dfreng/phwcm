@@ -15,7 +15,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 
-
 /**
  * 实体产品Bean对象
  * 
@@ -23,7 +22,7 @@ import javax.persistence.OneToMany;
  * 
  */
 @Entity
-public class ProductType implements Serializable{
+public class ProductType implements Serializable {
 
 	/**
 	 * 
@@ -43,40 +42,21 @@ public class ProductType implements Serializable{
 	 * 是否可见
 	 */
 	private Boolean visible = true;
-	
+
 	/**
 	 * 子类
 	 */
 	private Set<ProductType> childType = new HashSet<ProductType>();
-	
+
 	/**
 	 * 父类
 	 */
 	private ProductType parent;
 
-	
-	
-	@OneToMany(cascade={CascadeType.REFRESH,CascadeType.REMOVE},mappedBy="parent",fetch=FetchType.EAGER)
-	public Set<ProductType> getChildType() {
-		return childType;
-	}
-	
-	public void setChildType(Set<ProductType> childType) {
-		this.childType = childType;
-	}
-	
-	@ManyToOne(cascade=CascadeType.REFRESH,optional=true)
-	@JoinColumn(name="parentid")
-	public ProductType getParent() {
-		return parent;
-	}
-	public void setParent(ProductType parent) {
-		this.parent = parent;
-	}
 	public ProductType() {
-		
+
 	}
-	
+
 	public ProductType(Integer typeid) {
 		this.typeid = typeid;
 	}
@@ -86,7 +66,26 @@ public class ProductType implements Serializable{
 		this.note = note;
 	}
 
-	@Column(length=36,nullable=false)
+	@OneToMany(cascade = { CascadeType.REFRESH, CascadeType.REMOVE }, mappedBy = "parent", fetch = FetchType.EAGER)
+	public Set<ProductType> getChildType() {
+		return childType;
+	}
+
+	public void setChildType(Set<ProductType> childType) {
+		this.childType = childType;
+	}
+
+	@ManyToOne(cascade = CascadeType.REFRESH, optional = true)
+	@JoinColumn(name = "parentid")
+	public ProductType getParent() {
+		return parent;
+	}
+
+	public void setParent(ProductType parent) {
+		this.parent = parent;
+	}
+
+	@Column(length = 36, nullable = false)
 	public String getName() {
 		return name;
 	}
@@ -95,7 +94,7 @@ public class ProductType implements Serializable{
 		this.name = name;
 	}
 
-	@Column(length=200)
+	@Column(length = 200)
 	public String getNote() {
 		return note;
 	}
@@ -104,7 +103,7 @@ public class ProductType implements Serializable{
 		this.note = note;
 	}
 
-	@Column(nullable=false)
+	@Column(nullable = false)
 	public Boolean getVisible() {
 		return visible;
 	}
@@ -147,6 +146,5 @@ public class ProductType implements Serializable{
 			return false;
 		return true;
 	}
-	
 
 }

@@ -22,7 +22,7 @@ import javax.persistence.Table;
  * Scene entity. @author MyEclipse Persistence Tools
  */
 @Entity
-@Table(name = "op_scene", catalog = "unismweb")
+@Table(name = "op_scene", catalog = "unism")
 public class Scene implements java.io.Serializable {
 
 	/**

@@ -3,6 +3,8 @@
 /.mymetadata
 /.settings
 /.project
+/.externalToolBuilders
+/.metadata
 /build
 *.class
 *.swap
@@ -10,5 +12,3 @@
 *-bak
 *~
 /src/application.properties
-
-

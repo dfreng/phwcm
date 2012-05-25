@@ -41,7 +41,7 @@
 },{
 	"id":3,
 	"text":"控制设备监视分析",
-	"iconCls":"",
+	"iconCls":"save",
 	"state":"open",
 	"children":[{
 		"id":"31",
